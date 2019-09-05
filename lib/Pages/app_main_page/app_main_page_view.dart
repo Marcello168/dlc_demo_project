@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './app_main_page_view_model.dart';
-import './../home/home.dart';
+import 'package:dlc_flutter_project/Pages/home_page/home_page.dart';
 
 class AppMainPageView extends AppMainPageViewModel {
   static int _tabIndex = 0;
@@ -29,9 +29,9 @@ class AppMainPageView extends AppMainPageViewModel {
    * 存放的页面
    */
   var _pageList = [
-    new Home(),
-    new Home(),
-    new Home(),
+    new HomePage(),
+    new HomePage(),
+    new HomePage(),
   ];
 
   /*
