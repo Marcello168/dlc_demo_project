@@ -1,3 +1,5 @@
+import 'package:dlc_flutter_project/Pages/discover_page/discover_page.dart';
+import 'package:dlc_flutter_project/Pages/my/my_page/my_page.dart';
 import 'package:flutter/material.dart';
 import './app_main_page_view_model.dart';
 import 'package:dlc_flutter_project/Pages/home_page/home_page.dart';
@@ -30,8 +32,8 @@ class AppMainPageView extends AppMainPageViewModel {
    */
   var _pageList = [
     new HomePage(),
-    new HomePage(),
-    new HomePage(),
+    new DiscoverPage(),
+    new MyPage(),
   ];
 
   /*

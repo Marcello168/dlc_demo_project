@@ -1,5 +1,7 @@
 import 'package:dlc_flutter_project/General/Base/dlc_base_page/dlc_base_page.dart';
 import 'package:dlc_flutter_project/General/CustomWidget/dlc_custom_router.dart';
+import 'package:dlc_flutter_project/General/Marco/Application.dart';
+import 'package:dlc_flutter_project/General/Router/routes.dart';
 import 'package:dlc_flutter_project/Pages/test_page/test_page.dart';
 import 'package:flutter/material.dart';
 import './home_page_view_model.dart';
@@ -7,8 +9,8 @@ import 'package:dlc_flutter_project/General/Base/dlc_base_page/dlc_base_page_vie
 
 class HomePageView extends DLCBasePageView {
   int _count = 0;
-  @override
-  Color appBarContentColor = Colors.black;
+  Color appBarContentColor = Colors.blue;
+  String appBarTitle = '首页';
 
   @override
   Widget renderView() {
@@ -29,7 +31,11 @@ class HomePageView extends DLCBasePageView {
           ),
           RaisedButton(
             onPressed: () {
-              Navigator.push(context, CustomRoute((TestPage())));
+              // Navigator.push(context,
+              //     new MaterialPageRoute(builder: (context) => TestPage()));
+              // Navigator.push(context, CustomRoute((TestPage())));
+              Application.navigateTo(
+                  context: context, route: "${Routes.testPage}");
             },
             child: Text("跳转"),
           ),

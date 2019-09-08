@@ -7,7 +7,10 @@ class DLCBasePageView extends DLCBasePageViewModel {
   Color topBarColor = Colors.red;
   Color appBarColor = Colors.red;
   Color backArrowColor = Colors.white;
-  Color appBarContentColor = Colors.white;
+  /**
+   * 导航条颜色
+   */
+  Color appBarContentColor = Colors.blue;
 
   //标题字体大小
   double appBarCenterTextSize = 18; //根据需求变更
@@ -50,11 +53,14 @@ class DLCBasePageView extends DLCBasePageViewModel {
   Widget build(BuildContext context) {
     // Replace this with your build function
     return Scaffold(
-      appBar: new AppBar(
-        centerTitle: true,
-        title: Text(appBarTitle),
-        leading: getAppBarLeft(),
-      ),
+      appBar: isNavigationBarShow
+          ? new AppBar(
+              centerTitle: true,
+              title: Text(appBarTitle),
+              leading: getAppBarLeft(),
+              backgroundColor: appBarContentColor,
+            )
+          : null,
       body: renderView(),
     );
   }

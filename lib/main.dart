@@ -1,28 +1,39 @@
+import 'package:dlc_flutter_project/General/Marco/Application.dart';
+import 'package:dlc_flutter_project/General/Router/routes.dart' as prefix0;
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:dlc_flutter_project/Pages/login_page/login_page.dart';
 import 'package:dlc_flutter_project/Pages/app_main_page/app_main_page.dart';
+import 'package:dlc_flutter_project/General/Router/routes.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(App());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class App extends StatefulWidget {
+  @override
+  AppState createState() => AppState();
+}
+
+class AppState extends State<App> {
+  dynamic subscription;
+
+  @override
+  void initState() {
+    super.initState();
+    final Router router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        platform: TargetPlatform.iOS,
         primarySwatch: Colors.blue,
       ),
       home: AppMainPage(),
+      onGenerateRoute: Application.router.generator,
     );
   }
 }

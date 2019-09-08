@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class TestPageView extends DLCBasePageView {
   String appBarTitle = 'aaaaa';
-
+  Color appBarContentColor = Colors.brown;
   @override
   void didClickAppBarBack() {
     // TODO: implement didClickAppBarBack
